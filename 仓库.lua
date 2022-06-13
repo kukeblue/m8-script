@@ -240,7 +240,7 @@ while (true) do
 		else
 			if bise_mo(飞行符) then
 				显示器('飞行符')
-				randomTap(1645,722,3)
+				randomTap(1255,329,3)
 			else
 				打开道具()
 			end	
@@ -293,8 +293,9 @@ while(true) do
 				end
 				if(地点=='长安城') then
 					if bise_mo(道具红色长安城旗子) then
+					    
 						显示器('道具红色长安城旗子')
-						randomTap(1146,715,3)
+						randomTap(1132,318,3)
 					end
 				end
 			end        

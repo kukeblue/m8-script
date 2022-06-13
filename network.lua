@@ -4,7 +4,7 @@ require("tsnet")
 require("device")
 thread = require('thread')
 
-url = "http://103.100.210.203:3000"
+url = "http://192.168.0.13:3000"
 header_send =  {}
 header_send["content-type"]= "application/json"
 
@@ -15,6 +15,7 @@ accountNickName = ''
 deviceId = 0
 accountId = 0
 isLogin = false
+isWatuReady = false
 
 local str = [[{"meme":[1,0,0,4,6,9,5,1,0,0],"我":"五毛","爱":"六块"}]]
 
@@ -96,6 +97,29 @@ function httpGetStartTask()
             deviceId = res.data.deviceId
             accountId = res.data.accountId
             isLogin = true
+            return true
+        else 
+            toast(res.message, 3)
+        end
+    else
+        toast("没有匹配到任务")
+    end
+    return false
+end
+
+function httpGetReadyWatuTask()
+    local body = '{"name": "主线挖图", "status": "启动中"}'
+    status,header,content = http.post(url.."/api/client/get_one_task",{headers=header_send,postdata=body,opts={charset="utf8"}})
+    if status == 200 then
+        local res = json.decode(content);
+        if res.status == 0 then
+            taskName = res.data.taskName
+            taskNo = res.data.taskNo
+            accountNickName = res.data.accountNickName
+            deviceId = res.data.deviceId
+            accountId = res.data.accountId
+            isWatuReady = true
+            dialog('httpGetReadyWatuTask')
             return true
         else 
             toast(res.message, 3)

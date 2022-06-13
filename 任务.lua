@@ -1,8 +1,8 @@
 
 function 自动买宝图并分图()
-    --	导航长安酒店门口()
-    --	mSleep(1000)
-    --	购买宝图()
+    -- 导航长安酒店门口()
+    -- mSleep(1000)
+    -- 购买宝图()
     开宝图()
     点击仓库管理员()
     mSleep(2000)
@@ -14,28 +14,29 @@ function 好友栏给予(name)
     local tab = {
         "001c0003e101fe301fe71fdff3f1fffc1fff81fb003e3007c301f8703e0703806000003800038000380003800038000380003ffff3ffff3ffff3c00038000380003800038000380001800000000$红$218$20$31",
     }
-   
-
     while(true)do
         if bise_mo(好友栏给予标志) then
-            dialog('给予栏打开')
             break
         else  
-            if bise_mo(好友栏给予按钮) then
-                randomTap(1698,821,3)
-                mSleep(1000)
-            else  
-                if bise_mo(好友栏打开标志) then
-                    local index = addTSOcrDictEx(tab)
-                    x, y = tsFindText(index, "红", 1651,360,2129,892, "8E8D8E , 101015", 90)
-                    mSleep(2000)
-                    if(x>0 and y>0) then
-                        randomTap(x+300,y+10)
-                    end
-                else
-                    if bise_mo(好友按钮) then
-                        randomTap(2082,848,3)
-                        mSleep(1000)
+            if bise_mo(好友给予按钮) then
+                randomTap(1489,961,1)
+            else
+                if bise_mo(好友属性按钮) then
+                    randomTap(1650,560,1)
+                    mSleep(1000)
+                else  
+                    if bise_mo(好友栏打开标志) then
+                        local index = addTSOcrDictEx(tab)
+                        x, y = tsFindText(index, name, 1651,360,2129,892, "8E8D8E , 101015", 90)
+                        mSleep(2000)
+                        if(x>0 and y>0) then
+                            randomTap(x+300,y+10)
+                        end
+                    else
+                        if bise_mo(好友按钮) then
+                            randomTap(2082,848,3)
+                            mSleep(1000)
+                        end
                     end
                 end
             end
@@ -492,7 +493,7 @@ function 自动分图()
         mSleep(200)
     end
     mSleep(1000)
-    if 接受组队() and 满宝图仓库号 > 0 then
+    if 满宝图仓库号 > 0 then
         选择仓库(满宝图仓库号)
         mSleep(500)
         丢宝图()
@@ -511,37 +512,32 @@ function 等待丢宝图()
 end
 
 function 丢宝图()
-    for i = 1, 15 do
-        选择仓库道具(i, true)
-        mSleep(200)
-    end
-    if bise_mo(关闭仓库) then
-        nLog('关闭仓库')
-        tap(1762,94)
-    end
-    mSleep(500)
-    -- 组队
-    randomTap(1672,865, 3)
-    randomTap(2072,849,3)
-    mSleep(500)
-    randomTap(2075,610,3)
-    mSleep(500)
-    randomTap(1844,396,3)
-    mSleep(500)
-    for i = 1, 5 do
-        randomTap(1464,967,3)
-        start = 3 * (i - 1) + 3
-        endCount = start + 2
-        for i = start, endCount do
-            选择给予道具(i)
-            mSleep(500)
+    if(httpGetReadyWatuTask()) then
+        for i = 1, 15 do
+            选择仓库道具(i, true)
+            mSleep(200)
         end
-        randomTap(1844,981,3)
-        mSleep(1000)
+        if bise_mo(关闭仓库) then
+            nLog('关闭仓库')
+            tap(1762,94)
+        end
+        mSleep(500)
+        好友栏给予(accountNickName)
+        for i = 1, 5 do
+            randomTap(1464,967,3)
+            start = 3 * (i - 1) + 3
+            endCount = start + 2
+            for i = start, endCount do
+                选择给予道具(i)
+                mSleep(500)
+            end
+            randomTap(1844,981,3)
+            mSleep(1000)
+        end
+        randomTap(1588,59,3)
+        mSleep(500)
+        randomTap(2106,82,3)
     end
-    randomTap(1588,59,3)
-    mSleep(500)
-    randomTap(2106,82,3)
 end
 
 
@@ -756,7 +752,6 @@ function 导航建邺城()
 end
 function 任务导航(任务, 是否坐标寻路)
     任务坐标 = 精准获取坐标(任务)
-    dialog(任务坐标[1])
     if  string.find(任务,"建邺城") then
         导航建邺城()
         if 是否坐标寻路 == true then
