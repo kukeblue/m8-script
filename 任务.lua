@@ -9,6 +9,29 @@ function 自动买宝图并分图()
     自动分图()
 end
 
+function 发图()
+    点击仓库管理员()
+    a = {}
+    for index=10,25,1 do 
+        选择仓库(index)
+        mSleep(1000)
+        randomTap(1440,627,3)
+        mSleep(1000)
+        if bise_mo(仓库15号宝图) then
+            dialog('满了')
+            table.insert(a,index)
+        end
+    end
+    while #a~=0 do
+        if(httpGetReadyWatuTask()) then
+            dialog(a[0])
+            选择仓库(a[0])
+            丢宝图()
+            table.remove(a, 0)
+        end
+    end
+end
+
 function 好友栏给予(name)
     --内容已复制到剪贴板!
     local tab = {
@@ -493,7 +516,7 @@ function 自动分图()
         mSleep(200)
     end
     mSleep(1000)
-    if 满宝图仓库号 > 0 then
+    if 满宝图仓库号 > 0 and httpGetReadyWatuTask() then
         选择仓库(满宝图仓库号)
         mSleep(500)
         丢宝图()
@@ -512,7 +535,7 @@ function 等待丢宝图()
 end
 
 function 丢宝图()
-    if(httpGetReadyWatuTask()) then
+    
         for i = 1, 15 do
             选择仓库道具(i, true)
             mSleep(200)
@@ -537,7 +560,7 @@ function 丢宝图()
         randomTap(1588,59,3)
         mSleep(500)
         randomTap(2106,82,3)
-    end
+
 end
 
 

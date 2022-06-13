@@ -276,19 +276,19 @@ while(true) do
 				if(地点=='傲来国') then
 					if bise_mo(道具黄色傲来国旗子) then
 						显示器('道具黄色傲来国旗子')
-						randomTap(1512,334,3)
+						randomTap(1526,320,3)
 					end
 				end
 				if(地点=='长寿村') then
 					if bise_mo(道具绿色长寿村旗子) then
 						显示器('道具绿色长寿村旗子')
-						randomTap(1257,316,3)
+						randomTap(1387,316,3)
 					end
 				end
 				if(地点=='朱紫国') then
 					if bise_mo(道具白色朱紫国) then
 						显示器('道具白色朱紫国旗子')
-						randomTap(1520,317,3)
+						randomTap(1679,317,3)
 					end
 				end
 				if(地点=='长安城') then

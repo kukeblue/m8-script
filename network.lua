@@ -119,7 +119,6 @@ function httpGetReadyWatuTask()
             deviceId = res.data.deviceId
             accountId = res.data.accountId
             isWatuReady = true
-            dialog('httpGetReadyWatuTask')
             return true
         else 
             toast(res.message, 3)
