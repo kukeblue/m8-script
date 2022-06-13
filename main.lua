@@ -7,6 +7,8 @@ require("任务")
 require("坐标寻路")
 require("流程封妖")
 require("流程师门")
+require("流程打图")
+require("network")
 init(1);
 
 
@@ -25,8 +27,11 @@ function start()
 	显示器("即将开始脚本")
 	if process=="主线打图" then
 		显示器("主线打图")
+		登录梦幻西游()
+        流程打图() 
 	elseif process=="继续打图" then
 		显示器("继续打图")
+		流程打图()
 	elseif process=="主线封妖" then
 		显示器("主线封妖")
 		碗子山巡逻()
@@ -48,6 +53,7 @@ end
 --dialog(地图仓库对应关系["花果山"])
 --选择仓库(25)
 --导航朱紫国大唐境外()
-start()
+-- start()
+好友栏给予()
 mSleep(3000);
 

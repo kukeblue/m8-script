@@ -35,6 +35,13 @@ while(true) do
 end
 end
 
+function 打开追踪任务栏()
+    if bise_mo(任务栏展开按钮) then
+        显示器('任务栏展开按钮')
+        randomTap(2123,310,3)
+    end
+end
+
 仓库下接受组队={ 1931,869,0x675256, 1932,869,0x675256, 1933,869,0x675256, 1934,869,0x675256, 1935,869,0x675256, 1936,869,0x60474c, 1937,869,0x4d272f, 1938,869,0x451a24, 1939,869,0x4e2a31}
 function 接受组队()
 if bise_mo(仓库下接受组队) then
@@ -44,6 +51,7 @@ end
 end
 
 function 打开隐藏界面功能()
+    dialog("打开隐藏界面功能")
 while(true) do
 	关闭隐藏界面功能隐藏界面()
 	if bise_mo(隐藏界面功能返回按钮) then
@@ -76,6 +84,77 @@ if bise_mo(底部菜单_打开) then
 	randomTap(2079,987,3)
 end
 end
+
+function 处理弹出成语()
+    local tab = {
+        "6200800e0c701003c38fe203f0701c60f00e000cfe01e07bffe03fffffffffffffffffffffffffdc07bff80380633e00703c40f00c3f880e0106010000008020000000000100000600300001c10603803860e078070c1c0fe0c18381ee30307038fe060e070fe1e3c0e0fffffffc1ffffffb83e7ffff70fc1c3c0e3f818381ee3030703f83060e07e070c1c0f80e18380401c00700003800c0000000000000000000000000000000000000000000000000000000000000100000000300000000c1f00000381f00000703fe0000e003c00038003f800e0000f001c0000f80780000781e000007838000003cf0200003fc0600003f00f80003e00f0000fc00f8003f8003000ff0002003f7800000f07000007e0e00001e00e0001f800e0007c001c00ff0003803f0000383fc000038700000070c000000e00000000e00000000e00000001@11$释义$773$35$74",
+    }
+    local index = addTSOcrDictEx(tab)
+    存在成语=false
+    for var= 1, 3 do
+        x, y = tsFindText(index, "释义", 514,75,1518,782, "FFFF36 , 3F3E36 # EAEA0E , 2A290E # F4F418 , 343318 # FEFE22 , 3E3D22 # FFFF2C , 3F3E2C # FFFF36 , 3F3E36", 90)
+        mSleep(100)
+        if x > 0 then
+            存在成语=true
+            显示器('处理弹出成语')
+            返回成语()
+            mSleep(500)
+            break
+        end
+    end
+    while (存在成语==true) do
+        x2, y2 = tsFindText(index, "释义", 514,75,1518,782, "FFFF36 , 3F3E36 # EAEA0E , 2A290E # F4F418 , 343318 # FEFE22 , 3E3D22 # FFFF2C , 3F3E2C # FFFF36 , 3F3E36", 90)
+        mSleep(100)
+        if x2 > 0 then
+            显示器('处理弹出成语2')
+            弹出警告('弹出成语')
+            -- 速安打码点击()
+        else
+            显示器('处理完弹出成语')
+            httpSendTaskLogAsyn('info', '处理完弹出成语')
+            存在成语=false
+            break
+        end
+        mSleep(1000)
+    end
+end
+
+function 处理弹出漂浮文字()
+    --内容已复制到剪贴板!
+    local tab = {
+        "000000600406001c0080c03f0030181fc00703fff000e0fffe001fffffffffcfffc000f03fe0001c061c000300c1e00000000c0000000080000000000000602000001c0c06000701818061c070701c700e0c039c0183806f3030f00ce70e38039873fe186107ffc39c207ff83f84078703e080e0e03c101c0c07020f0181c0638030780ff0061e01f800c7003c001fc0000003e00000007800@0$移动$386$35$35",
+    }
+    local index = addTSOcrDictEx(tab)
+
+
+    存在漂浮文字=false
+    for var= 1, 3 do
+        x, y = tsFindText(index, "移动",514,75,1518,782, "FFFFFF , 343232 # EFF0F0 , 242323 # FFFFFF , 343232 # FFFFFF , 343232 # FFFFFF , 343232", 90)
+        mSleep(100)
+        if x > 0 then
+            存在漂浮文字=true
+            显示器('存在漂浮文字')
+            弹出警告('弹出漂浮文字')
+            break
+        end
+    end
+    while (存在漂浮文字==true) do
+        x, y = tsFindText(index, "移动",514,75,1518,782, "FFFFFF , 343232 # EFF0F0 , 242323 # FFFFFF , 343232 # FFFFFF , 343232 # FFFFFF , 343232", 90)
+        mSleep(100)
+        if x > 0 then
+            显示器('处理弹漂浮文字')
+            弹出警告('弹出漂浮文字')
+            -- 速安打码点击()
+        else
+            显示器('处理完漂浮文字')
+            存在成语=false
+            httpSendTaskLogAsyn('info', '处理完漂浮文字')
+            break
+        end
+        mSleep(1000)
+    end
+end
+
 
 function 返回屏幕当前坐标()
 local ret = tsOcrText(左上角地图坐标字库, 208,72,407,146, "C0CFD4 , 534744", 90)
@@ -161,7 +240,7 @@ while (true) do
 		else
 			if bise_mo(飞行符) then
 				显示器('飞行符')
-				randomTap(1258,327,3)
+				randomTap(1645,722,3)
 			else
 				打开道具()
 			end	
@@ -215,7 +294,7 @@ while(true) do
 				if(地点=='长安城') then
 					if bise_mo(道具红色长安城旗子) then
 						显示器('道具红色长安城旗子')
-						randomTap(1127,324,3)
+						randomTap(1146,715,3)
 					end
 				end
 			end        
@@ -385,6 +464,7 @@ function 精准获取坐标(b)
             c = string.gsub(c, "|", ",")
         end
     end
+    
     if c==nil then
 		显示器('精准获取坐标不完善')
 		return nil
