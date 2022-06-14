@@ -4,7 +4,7 @@ require("tsnet")
 require("device")
 thread = require('thread')
 
-url = "http://192.168.0.13:3000"
+url = "http://192.168.8.114:3000"
 header_send =  {}
 header_send["content-type"]= "application/json"
 
@@ -121,13 +121,14 @@ function httpGetReadyWatuTask()
             isWatuReady = true
             return true
         else 
-            toast(res.message, 3)
+--            toast(res.message, 3)
         end
     else
         toast("没有匹配到任务")
     end
     return false
 end
+
 
 -- function httpCreateTask()
 --     local body = '{"name": "流程打图","startTime": 1644283262,"endTime": 1644283262,"status": "初始化","note": "","taskNo": "2022020701","deviceImei": "902879041064870"}'
