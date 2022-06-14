@@ -1,21 +1,21 @@
 
 function 自动买宝图并分图()
-	while (true) do
-		导航长安酒店门口()
-		mSleep(1000)
-		购买宝图()
-		开宝图()
-		点击仓库管理员()
-		mSleep(2000)
-		自动分图()
-	end
+    while (true) do
+        导航长安酒店门口()
+        mSleep(1000)
+        购买宝图()
+        开宝图()
+        点击仓库管理员()
+        mSleep(2000)
+        自动分图()
+    end
    
 end
 
 function 发图()
     a = {}
-	点击仓库管理员()
-	mSleep(1000)
+    点击仓库管理员()
+    mSleep(1000)
     for index=10,25,1 do 
         选择仓库(index)
         mSleep(1000)
@@ -25,12 +25,12 @@ function 发图()
         end
     end
     while #a~=0 do
-		mSleep(3000)
+        mSleep(3000)
         if(httpGetReadyWatuTask()) then
             选择仓库(a[1])
             丢宝图()
             table.remove(a, 1)
-			点击仓库管理员()
+            点击仓库管理员()
         end
     end
 end
@@ -38,8 +38,13 @@ end
 function 好友栏给予(name)
     --内容已复制到剪贴板!
     local tab = {
-        "001c0003e101fe301fe71fdff3f1fffc1fff81fb003e3007c301f8703e0703806000003800038000380003800038000380003ffff3ffff3ffff3c00038000380003800038000380001800000000$红$218$20$31",
-    }
+"0070000780187871c7871c7871c7871c7871c7cf1c7ff1c7ff1c7ff1c7ff1c7873ef87fff87fff87fff877ff871c7871c78f1c7ff1c7ff1c7ff1c7ff1c7871c7871c7871c7871c7870878000700$幸$345$20$31",
+"07e700fe781f07c7e0feff9feffffffffffffffffffffffffffffffffdfffe0feff0feffef8ffe70ffe00ffe00ff07fff87ffffffffffffffffffffffffffffcffff87fff07f7f07f1fe7f0fe3f03c0f$霸$510$20$32",
+"001e0003e100fe301ff71fdff3f9fffe1fffc1ff203f1007e301fc703f8703c030d8003c0003c0003c0003c0003c0003c0003ffff3ffff3ffff3ffff3c0003c0003c0003c0003c0001800008000$红$259$20$31",
+"0000000c0300c0700e7f01fffffffffffff7ffff3ffff01e7e00e3e01c1f01f7f3ffff3ffff7df007df8078fc078ff0781ff783ff783ff7dfff7fff97dfe07c8003ffff3ffff1ffff00003000000000000000$枫$376$20$33",
+"000020c00f0c00f0c00f1c00f1c01e1c03e1c03f3e07fff8ffff8ff7f3ff3e3cf1c7cf1cf8f1ef0f1ef0f1ef0f1cf0f1c7cf1e7cf3f3ff7f1ffff8ff7e07f1c03f1c03f1c03c1c01e0c00f0c00f0c00f$苍$334$20$32",
+"0000000c0101c0301eff03ffffffff7ffff3ffff0feff01c3f0cc3f1c3ff1c7ff1cfff3efff7fff77fff77fff73eff71cff71cff71cff73cff73cff77fff7ffff77fff73efff3cfff1cfff1c3fe1c0000c000$模$446$20$33",
+}
     while(true)do
         if bise_mo(好友栏给予标志) then
             break
@@ -53,8 +58,9 @@ function 好友栏给予(name)
                 else  
                     if bise_mo(好友栏打开标志) then
                         local index = addTSOcrDictEx(tab)
-                        x, y = tsFindText(index, name, 1651,360,2129,892, "8E8D8E , 101015", 90)
+                        x, y = tsFindText(index, name, 1651,360,2129,892, "828180 , 040407 # 8C8B8A , 0E0E11 # 969594 , 18181B # 969594 , 18181B", 90)
                         mSleep(2000)
+                
                         if(x>0 and y>0) then
                             randomTap(x+300,y+10)
                         end
@@ -165,7 +171,51 @@ function 购买宝图()
         end
     end
 end
+function 导航到朱紫国麒麟山门口()
+    使用导标旗('朱紫国', 白色朱紫国导标旗坐标_麒麟山屏幕xy[1], 白色朱紫国导标旗坐标_麒麟山屏幕xy[2], 白色朱紫国导标旗坐标_麒麟山Str)
+end
+function 导航到朱紫国妖怪亲信()
+    使用导标旗('朱紫国', 白色朱紫国导标旗坐标_妖怪亲信屏幕xy[1], 白色朱紫国导标旗坐标_妖怪亲信屏幕xy[2], 白色朱紫国导标旗坐标_妖怪亲信Str)
+end
+function 导航到朱紫国酒店()
+    使用导标旗('朱紫国', 白色朱紫国导标旗坐标_酒店屏幕xy[1], 白色朱紫国导标旗坐标_酒店屏幕xy[2], 白色朱紫国导标旗坐标_酒店Str)
+end
+function 导航到朱紫国申太公()
+    使用导标旗('朱紫国', 白色朱紫国导标旗坐标_申太公屏幕xy[1], 白色朱紫国导标旗坐标_申太公屏幕xy[2], 白色朱紫国导标旗坐标_申太公Str)
+end
+function 导航到朱紫国小团团()
+    使用导标旗('朱紫国', 白色朱紫国导标旗坐标_小团团屏幕xy[1], 白色朱紫国导标旗坐标_小团团屏幕xy[2], 白色朱紫国导标旗坐标_小团团Str)
+end
+function 导航到朱紫国紫阳药师附近()
+    使用导标旗('朱紫国',白色朱紫国导标旗坐标_紫阳药师附近屏幕xy[1], 白色朱紫国导标旗坐标_紫阳药师附近屏幕xy[2], 白色朱紫国导标旗坐标_紫阳药师附近Str)
+end
 
+function 导航朱紫国(x,y)
+    local 距离麒麟山 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_麒麟山[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_麒麟山[2]))
+    local 距离妖怪亲信 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_妖怪亲信[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_妖怪亲信[2]))
+    local 距离酒店 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_酒店[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_酒店[2]))
+    local 距离申太公 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_申太公[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_申太公[2]))
+    local 距离小团团 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_小团团[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_小团团[2]))
+    local 距离紫阳药师 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_紫阳药师附近[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_紫阳药师附近[2]))
+    local 距离大唐境外 = math.abs(tonumber(x) - tonumber(白色朱紫国导标旗坐标_大唐境外[1])) + math.abs(tonumber(y) - tonumber(白色朱紫国导标旗坐标_大唐境外[2]))
+    local table = {['距离麒麟山']=距离麒麟山, ['距离妖怪亲信']=距离妖怪亲信,['距离酒店']=距离酒店,['距离申太公']=距离申太公,['距离小团团']=距离小团团,['距离紫阳药师']=距离紫阳药师,['距离大唐境外']=距离大唐境外}
+    local 最近坐标点 = MinTable(table)
+    if(最近坐标点 == '距离麒麟山') then
+        导航到朱紫国麒麟山门口()
+    elseif(最近坐标点 == '距离妖怪亲信') then
+        导航到朱紫国妖怪亲信() 
+    elseif(最近坐标点 == '距离酒店') then
+        导航到朱紫国酒店()
+    elseif(最近坐标点 == '距离申太公') then
+        导航到朱紫国申太公()
+    elseif(最近坐标点 == '距离小团团') then
+        导航到朱紫国小团团()
+    elseif(最近坐标点 == '距离紫阳药师') then
+        导航到朱紫国紫阳药师附近()
+    elseif(最近坐标点 == '距离大唐境外') then
+        导航到朱紫国大唐境外门口()
+    end
+end
 
 function 领取宝图任务()
     导航长安酒店内()
@@ -175,7 +225,7 @@ function 领取宝图任务()
         if bise_mo(任务栏绿色挖宝文字) then
             break
         else
-            if bise_mo(听听无妨) then
+            if bise_mo(听听无妨) or bise_mo(听听无妨1) then
                 tap(1742,520)
                 mSleep(1000)
                 if bise_mo(弹窗关闭按钮店小二) then
@@ -285,9 +335,9 @@ function 导航长安酒店内()
             break
         else
             导航长安酒店门口()
-            打开隐藏界面功能隐藏玩家()
+            -- 打开隐藏界面功能隐藏玩家()
             打开隐藏界面功能隐藏摊位()
-            chRandomsTap(1110,330,1)
+            chRandomsTap(1391,250,1)
             mSleep(2000)
         end
         mSleep(500)
@@ -538,31 +588,31 @@ function 等待丢宝图()
 end
 
 function 丢宝图()
-        for i = 1, 15 do
-            选择仓库道具(i, true)
-            mSleep(200)
+    for i = 1, 15 do
+        选择仓库道具(i, true)
+        mSleep(200)
+    end
+    if bise_mo(关闭仓库) then
+        nLog('关闭仓库')
+        tap(1762,94)
+    end
+    mSleep(500)
+    好友栏给予(accountNickName)
+    for i = 1, 5 do
+        randomTap(1464,967,3)
+        start = 3 * (i - 1) + 3
+        endCount = start + 2
+        for i = start, endCount do
+            选择给予道具(i)
+            mSleep(500)
         end
-        if bise_mo(关闭仓库) then
-            nLog('关闭仓库')
-            tap(1762,94)
-        end
-        mSleep(500)
-        好友栏给予(accountNickName)
-        for i = 1, 5 do
-            randomTap(1464,967,3)
-            start = 3 * (i - 1) + 3
-            endCount = start + 2
-            for i = start, endCount do
-                选择给予道具(i)
-                mSleep(500)
-            end
-            randomTap(1844,981,3)
-            mSleep(1000)
-        end
-        randomTap(1588,59,3)
-        mSleep(500)
-        randomTap(2106,82,3)
-		httpSendTaskLog('info', '开始挖图')
+        randomTap(1844,981,3)
+        mSleep(1000)
+    end
+    randomTap(1588,59,3)
+    mSleep(500)
+    randomTap(2106,82,3)
+    httpSendTaskLog('info', '开始挖图')
 end
 
 

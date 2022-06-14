@@ -17,6 +17,24 @@ function bise_mo(arg)
 	return true
 end
 
+
+function 打开隐藏界面功能隐藏摊位()
+    while(true) do
+        if bise_mo(隐藏界面功能隐藏摊位_开启) then
+            显示器('隐藏界面功能隐藏摊位_开启')
+            break
+        else
+            if bise_mo(隐藏界面功能隐藏摊位_关闭) then
+                显示器('隐藏界面功能隐藏摊位_关闭')
+                randomTap(467,960,1)
+            else
+                打开隐藏界面功能()
+            end
+        end
+        mSleep(200)
+    end
+end
+
 function 打开隐藏界面功能全部摊位()
 while(true) do
 	if bise_mo(隐藏界面功能全部摊位按钮_开启) then
@@ -48,6 +66,23 @@ if bise_mo(仓库下接受组队) then
 	nLog('仓库下接受组队')
 	return true
 end
+end
+
+function 打开隐藏界面功能隐藏玩家() 
+    while(true) do
+        if bise_mo(隐藏界面功能隐藏玩家_开启) then
+            显示器('隐藏界面功能隐藏玩家_开启')
+            break
+        else
+            if bise_mo(隐藏界面功能隐藏玩家_关闭) then
+                显示器('隐藏界面功能隐藏玩家_关闭')
+                randomTap(180,513,1)
+            else
+                打开隐藏界面功能()
+            end
+        end
+        mSleep(200)
+    end
 end
 
 function 打开隐藏界面功能()
@@ -276,19 +311,19 @@ while(true) do
 				if(地点=='傲来国') then
 					if bise_mo(道具黄色傲来国旗子) then
 						显示器('道具黄色傲来国旗子')
-						randomTap(1526,320,3)
+						randomTap(1382,317,3)
 					end
 				end
 				if(地点=='长寿村') then
 					if bise_mo(道具绿色长寿村旗子) then
 						显示器('道具绿色长寿村旗子')
-						randomTap(1387,316,3)
+						randomTap(1518,316,3)
 					end
 				end
 				if(地点=='朱紫国') then
 					if bise_mo(道具白色朱紫国) then
 						显示器('道具白色朱紫国旗子')
-						randomTap(1679,317,3)
+						randomTap(1649,317,3)
 					end
 				end
 				if(地点=='长安城') then

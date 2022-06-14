@@ -4,7 +4,7 @@ require("tsnet")
 require("device")
 thread = require('thread')
 
-url = "http://192.168.8.114:3000"
+url = "http://192.168.0.13:3000"
 header_send =  {}
 header_send["content-type"]= "application/json"
 
@@ -60,7 +60,6 @@ end
 function httpSendTaskLog(type, note, taskCount)
     if isLogin == false then
         nLog(note)        
-        return
     end
     params = {
         ["imei"] = imei, 
@@ -77,7 +76,7 @@ function httpSendTaskLog(type, note, taskCount)
         params["taskCount"] = taskCount
     end
     body = json.encode(params);
-    status,header,content = http.post(url.."/api/task_log/add_task_log",{headers=header_send,postdata=body,opts={charset="utf8"}})
+    status,header,content = http.post(url.."/api/client/add_task_log",{headers=header_send,postdata=body,opts={charset="utf8"}})
     if status == 200 then
     else
         dialog("日志发送失败")
@@ -119,6 +118,7 @@ function httpGetReadyWatuTask()
             deviceId = res.data.deviceId
             accountId = res.data.accountId
             isWatuReady = true
+            httpSendTaskLog('info', '开始挖图')
             return true
         else 
 --            toast(res.message, 3)
