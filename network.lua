@@ -1,10 +1,8 @@
 local sz = require("sz")--使用 sz 库前必须插入这一句
 local json = sz.json--使用 JSON 模块前必须插入这一句
 require("tsnet")
-require("device")
 thread = require('thread')
-
-url = "http://192.168.0.13:3000"
+url = "http://103.100.210.203:3000"
 header_send =  {}
 header_send["content-type"]= "application/json"
 
@@ -16,6 +14,8 @@ deviceId = 0
 accountId = 0
 isLogin = false
 isWatuReady = false
+imei = '0'
+
 
 local str = [[{"meme":[1,0,0,4,6,9,5,1,0,0],"我":"五毛","爱":"六块"}]]
 

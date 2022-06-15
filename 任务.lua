@@ -14,7 +14,7 @@ end
 
 function 发图()
     a = {}
-    点击仓库管理员()
+	点击仓库管理员()
     mSleep(1000)
     for index=10,25,1 do 
         选择仓库(index)
@@ -38,13 +38,24 @@ end
 function 好友栏给予(name)
     --内容已复制到剪贴板!
     local tab = {
-"0070000780187871c7871c7871c7871c7871c7cf1c7ff1c7ff1c7ff1c7ff1c7873ef87fff87fff87fff877ff871c7871c78f1c7ff1c7ff1c7ff1c7ff1c7871c7871c7871c7871c7870878000700$幸$345$20$31",
-"07e700fe781f07c7e0feff9feffffffffffffffffffffffffffffffffdfffe0feff0feffef8ffe70ffe00ffe00ff07fff87ffffffffffffffffffffffffffffcffff87fff07f7f07f1fe7f0fe3f03c0f$霸$510$20$32",
-"001e0003e100fe301ff71fdff3f9fffe1fffc1ff203f1007e301fc703f8703c030d8003c0003c0003c0003c0003c0003c0003ffff3ffff3ffff3ffff3c0003c0003c0003c0003c0001800008000$红$259$20$31",
-"0000000c0300c0700e7f01fffffffffffff7ffff3ffff01e7e00e3e01c1f01f7f3ffff3ffff7df007df8078fc078ff0781ff783ff783ff7dfff7fff97dfe07c8003ffff3ffff1ffff00003000000000000000$枫$376$20$33",
-"000020c00f0c00f0c00f1c00f1c01e1c03e1c03f3e07fff8ffff8ff7f3ff3e3cf1c7cf1cf8f1ef0f1ef0f1ef0f1cf0f1c7cf1e7cf3f3ff7f1ffff8ff7e07f1c03f1c03f1c03c1c01e0c00f0c00f0c00f$苍$334$20$32",
-"0000000c0101c0301eff03ffffffff7ffff3ffff0feff01c3f0cc3f1c3ff1c7ff1cfff3efff7fff77fff77fff73eff71cff71cff71cff73cff73cff77fff7ffff77fff73efff3cfff1cfff1c3fe1c0000c000$模$446$20$33",
+	"0070000780187871c7871c7871c7871c7871c7cf1c7ff1c7ff1c7ff1c7ff1c7873ef87fff87fff87fff877ff871c7871c78f1c7ff1c7ff1c7ff1c7ff1c7871c7871c7871c7871c7870878000700$幸$345$20$31",
+	"07e700fe781f07c7e0feff9feffffffffffffffffffffffffffffffffdfffe0feff0feffef8ffe70ffe00ffe00ff07fff87ffffffffffffffffffffffffffffcffff87fff07f7f07f1fe7f0fe3f03c0f$霸$510$20$32",
+	"001e0003e100fe301ff71fdff3f9fffe1fffc1ff203f1007e301fc703f8703c030d8003c0003c0003c0003c0003c0003c0003ffff3ffff3ffff3ffff3c0003c0003c0003c0003c0001800008000$红$259$20$31",
+	"0000000c0300c0700e7f01fffffffffffff7ffff3ffff01e7e00e3e01c1f01f7f3ffff3ffff7df007df8078fc078ff0781ff783ff783ff7dfff7fff97dfe07c8003ffff3ffff1ffff00003000000000000000$枫$376$20$33",
+	"000020c00f0c00f0c00f1c00f1c01e1c03e1c03f3e07fff8ffff8ff7f3ff3e3cf1c7cf1cf8f1ef0f1ef0f1ef0f1cf0f1c7cf1e7cf3f3ff7f1ffff8ff7e07f1c03f1c03f1c03c1c01e0c00f0c00f0c00f$苍$334$20$32",
+	"0000000c0101c0301eff03ffffffff7ffff3ffff0feff01c3f0cc3f1c3ff1c7ff1cfff3efff7fff77fff77fff73eff71cff71cff71cff73cff73cff77fff7ffff77fff73efff3cfff1cfff1c3fe1c0000c000$模$446$20$33",
 }
+--内容已复制到剪贴板!
+local tab2 = {
+	"00e0000007f8000007f8000077f039ce77e039efffff7beffffffbeffffffbeffffffbeffffffbeffffffbeffffffbeffffffbefff407beffffffbeffffffbeffffffbeffffffbeffffffbefff407befffe67beffffffbeffffffbeffffffbeffffffbeffffffbefffffffffffff7fff7ff63ffe77f01ffe27f80ffc07f8000003f00000$雪$811$32$33",
+	"fffffffffffffffffffffffffffffff$一$124$4$31",
+}
+
+
+--内容已复制到剪贴板!
+	local tab_hao = {
+	"02007800c0c03e00603fffe0381ff8181cfff8038e3fe000670470001f800c0007e0020001f8008001fe003007f1c00e07e03803ffe006007e00000000000000000380002000e0000800380062000e0018800380032000e000c802380032018e000c80ff80032077e000c838f800620c1e00388e03fffe3380fffe0fc03dfe03e00e0000f80380003800e0000e0038000$好$341$34$34",
+	}
     while(true)do
         if bise_mo(好友栏给予标志) then
             break
@@ -52,20 +63,26 @@ function 好友栏给予(name)
             if bise_mo(好友给予按钮) then
                 randomTap(1489,961,1)
             else
-                if bise_mo(好友属性按钮) then
-                    randomTap(1650,560,1)
+				local index = addTSOcrDictEx(tab_hao)
+				x, y = tsFindText(index, "好",  1545,284,2219,1000, "EBEEF0 , 13110F # F5F8FA , 1D1B19", 90)
+                if (x > 0) then
+                    randomTap(x,y,1)
                     mSleep(1000)
                 else  
                     if bise_mo(好友栏打开标志) then
                         local index = addTSOcrDictEx(tab)
                         x, y = tsFindText(index, name, 1651,360,2129,892, "828180 , 040407 # 8C8B8A , 0E0E11 # 969594 , 18181B # 969594 , 18181B", 90)
-                        mSleep(2000)
-                
+                        mSleep(1000)
+                        if(x>0 and y>0) then
+                            randomTap(x+300,y+10)
+                        end
+						local index = addTSOcrDictEx(tab2)
+						x, y = tsFindText(index, name, 1651,360,2129,892, "8C8A89 , 0E0D10 # 82807F , 040306 # 969493 , 18171A # A09E9D , 222124", 90)
                         if(x>0 and y>0) then
                             randomTap(x+300,y+10)
                         end
                     else
-                        if bise_mo(好友按钮) then
+						if bise_mo(好友按钮) then
                             randomTap(2082,848,3)
                             mSleep(1000)
                         end

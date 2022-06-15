@@ -51,7 +51,7 @@ function start()
 	mSleep(3000)
 end
 --导航长安酒店门口()
---dialog(地图仓库对应关系["花果山"])
+--dialog(地图仓库对应关系["花果山jhjhkjkhjkahdsakjDAhdjksahjdhsajkDHASJKDHJSKADHJKASHDJSKAhd"])
 --选择仓库(25)
 --导航朱紫国大唐境外()
 start()
