@@ -35,21 +35,43 @@ function 发图()
     end
 end
 
+
+function 小米数字键盘(变量)
+mSleep(1000)					
+for i=0,string.len(变量) do
+	tn= string.sub(变量,i,i)
+	mSleep(50)
+	if tn=='0' then  tap( 1092,1014)  mSleep(50) end
+	if tn=='1' then  tap( 743,630)  mSleep(50)  end
+	if tn=='2' then  tap( 1096,637)  mSleep(50)  end
+	if tn=='3' then  tap( 1446,623)  mSleep(50)  end
+	if tn=='4' then  tap( 753,748)  mSleep(50)  end
+	if tn=='5' then  tap( 1086,751)  mSleep(50)  end
+	if tn=='6' then  tap( 1433,754)  mSleep(50)  end
+	if tn=='7' then  tap( 731,871)  mSleep(50)  end
+	if tn=='8' then  tap( 1088,867)  mSleep(50)  end
+	if tn=='9' then  tap( 1457,880)  mSleep(50)  end
+end
+end
+
+
 function 好友栏给予(name)
     --内容已复制到剪贴板!
-    local tab = {
-	"0070000780187871c7871c7871c7871c7871c7cf1c7ff1c7ff1c7ff1c7ff1c7873ef87fff87fff87fff877ff871c7871c78f1c7ff1c7ff1c7ff1c7ff1c7871c7871c7871c7871c7870878000700$幸$345$20$31",
-	"07e700fe781f07c7e0feff9feffffffffffffffffffffffffffffffffdfffe0feff0feffef8ffe70ffe00ffe00ff07fff87ffffffffffffffffffffffffffffcffff87fff07f7f07f1fe7f0fe3f03c0f$霸$510$20$32",
-	"001e0003e100fe301ff71fdff3f9fffe1fffc1ff203f1007e301fc703f8703c030d8003c0003c0003c0003c0003c0003c0003ffff3ffff3ffff3ffff3c0003c0003c0003c0003c0001800008000$红$259$20$31",
-	"0000000c0300c0700e7f01fffffffffffff7ffff3ffff01e7e00e3e01c1f01f7f3ffff3ffff7df007df8078fc078ff0781ff783ff783ff7dfff7fff97dfe07c8003ffff3ffff1ffff00003000000000000000$枫$376$20$33",
-	"000020c00f0c00f0c00f1c00f1c01e1c03e1c03f3e07fff8ffff8ff7f3ff3e3cf1c7cf1cf8f1ef0f1ef0f1ef0f1cf0f1c7cf1e7cf3f3ff7f1ffff8ff7e07f1c03f1c03f1c03c1c01e0c00f0c00f0c00f$苍$334$20$32",
-	"0000000c0101c0301eff03ffffffff7ffff3ffff0feff01c3f0cc3f1c3ff1c7ff1cfff3efff7fff77fff77fff73eff71cff71cff71cff73cff73cff77fff7ffff77fff73efff3cfff1cfff1c3fe1c0000c000$模$446$20$33",
-}
---内容已复制到剪贴板!
-local tab2 = {
-	"00e0000007f8000007f8000077f039ce77e039efffff7beffffffbeffffffbeffffffbeffffffbeffffffbeffffffbeffffffbefff407beffffffbeffffffbeffffffbeffffffbeffffffbefff407befffe67beffffffbeffffffbeffffffbeffffffbeffffffbefffffffffffff7fff7ff63ffe77f01ffe27f80ffc07f8000003f00000$雪$811$32$33",
-	"fffffffffffffffffffffffffffffff$一$124$4$31",
-}
+	--    local tab = {
+	--	"0070000780187871c7871c7871c7871c7871c7cf1c7ff1c7ff1c7ff1c7ff1c7873ef87fff87fff87fff877ff871c7871c78f1c7ff1c7ff1c7ff1c7ff1c7871c7871c7871c7871c7870878000700$幸$345$20$31",
+	--	"07e700fe781f07c7e0feff9feffffffffffffffffffffffffffffffffdfffe0feff0feffef8ffe70ffe00ffe00ff07fff87ffffffffffffffffffffffffffffcffff87fff07f7f07f1fe7f0fe3f03c0f$霸$510$20$32",
+	--	"001e0003e100fe301ff71fdff3f9fffe1fffc1ff203f1007e301fc703f8703c030d8003c0003c0003c0003c0003c0003c0003ffff3ffff3ffff3ffff3c0003c0003c0003c0003c0001800008000$红$259$20$31",
+	--	"0000000c0300c0700e7f01fffffffffffff7ffff3ffff01e7e00e3e01c1f01f7f3ffff3ffff7df007df8078fc078ff0781ff783ff783ff7dfff7fff97dfe07c8003ffff3ffff1ffff00003000000000000000$枫$376$20$33",
+	--	"000020c00f0c00f0c00f1c00f1c01e1c03e1c03f3e07fff8ffff8ff7f3ff3e3cf1c7cf1cf8f1ef0f1ef0f1ef0f1cf0f1c7cf1e7cf3f3ff7f1ffff8ff7e07f1c03f1c03f1c03c1c01e0c00f0c00f0c00f$苍$334$20$32",
+	--	"0000000c0101c0301eff03ffffffff7ffff3ffff0feff01c3f0cc3f1c3ff1c7ff1cfff3efff7fff77fff77fff73eff71cff71cff71cff73cff73cff77fff7ffff77fff73efff3cfff1cfff1c3fe1c0000c000$模$446$20$33",
+	--}
+	--内容已复制到剪贴板!
+	local tab = {
+	"00000700000801e0000303f8000070ff00003ffff000ffffffffbffffffff8fffffffe00efc00080187c00300303c03f0060781fc00e07fff03ffffff81ffffffe03fff003c070e0003c0e1e000f81c3f003e0381f00f80701fcfe00e00fff001c00ffc003807ffe0071fffff80e3f801f01c3c001e03dfe000007fffff000fffffff00fffffffe0000000ff0000000fe0000001fc0000003e@0$枫$563$35$35",
+	"6fffffffffffffffffffffffffffffffff6$一$136$4$35",
+	"1800300003800700007001c0000e00780001c00f00003801e0000700780000e00f00003c03ffff07c07ffff3fc1cf01e3f879c00e3c1c3800c38786001c71e0c0038e78180071ee03000e3dc06001c7b80c0038e78180071c783038e38786071c7070e0e39f071c1c7ff073c78efe0ffff1cf80fffc38e01f00071c01c000e3803c001c7003c0038e007801e1c00701fc3800e07f07000c0fc@0$苍$449$35$35",
+	"01c003e0003801f8000703fc0001e1ff8007fffffffdfffffffffffffffff83fffc00e01c7e00000383c00004003c3038c0078607183ff0c0e30ffe183861ffe30f1e7ffc61cfef738c39fdee718f1f3dce37c1e7b9e7f018773cfe030ee7ff8061dcffe00c3b9ffe018773cfc079ee71fc1f3dce3787f7b9c638feff38c3879fe7187061fce30e0c3ff860c187ff0c0c30000181840000303000000004000000000000000000000000000600200071c00e000e38c1e007c71c1e00f0e3c1e07c1c3c180f0383c00f80703c03e03f8301f80ff8001c01ff8000001f80000000e03ffff81c0fffff8383fffff8707800070e0e000071c1c0000e38380001c707000038e0e000071c1c0000efe380701dfff00e03fffe01e073e3c03c0e38380381c70700f038e0f03c071c1fff80e381fff01c700000078e000007e1c00000f83800001e00000000000000000000000000000000000078000003bf80000077f018003cfe07001f1c70f00fc30e1e0ff061c3fff80c387ffc01870f000030e1e000061c3c0000c38780001870ffffc30e1ffffc61c3ffff8c18780079800e00073000c0006601c0000cc038000198073c0c3300e3e1c6601c3f38cc0380c79980700073b01e000ee603c001dcc07c00f9987fffff330fffff86603e0000ce27800039fc70000f3f8e0003c3f1c001f80000000000000000000000000000000000000201000000f0f000009e1e000033c3c00006787fff10cf1ffff339e7fffe671cffff8fe3ff0001fc7fe0003f8ffc0007f1ff8000fe3e70001fcf8e0001ffe1c0003ffc380003ff8700007bf1f0000e1ffffff1c3effffe3878f80007070e0000e0e1c0003c1c380007c3870071f870e00e3f8e1c00c7f1c3801cde387001b1cf0e007619e1f03e033c3fff802787fff000f00000000e00000$模范冠希$2106$35$152",
+	}
 
 
 --内容已复制到剪贴板!
@@ -70,17 +92,28 @@ local tab2 = {
                     mSleep(1000)
                 else  
                     if bise_mo(好友栏打开标志) then
-                        local index = addTSOcrDictEx(tab)
-                        x, y = tsFindText(index, name, 1651,360,2129,892, "828180 , 040407 # 8C8B8A , 0E0E11 # 969594 , 18181B # 969594 , 18181B", 90)
-                        mSleep(1000)
-                        if(x>0 and y>0) then
-                            randomTap(x+300,y+10)
-                        end
-						local index = addTSOcrDictEx(tab2)
-						x, y = tsFindText(index, name, 1651,360,2129,892, "8C8A89 , 0E0D10 # 82807F , 040306 # 969493 , 18171A # A09E9D , 222124", 90)
-                        if(x>0 and y>0) then
-                            randomTap(x+300,y+10)
-                        end
+						randomTap(1928,236,3)
+						mSleep(1000)
+						randomTap(589, 1004,3)
+						mSleep(1000)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						randomTap(1787,621,3)
+						小米数字键盘(name)
+						mSleep(1000)
+						randomTap(1955, 499, 3)
+						mSleep(1000)
+						randomTap(2086, 371, 3)
+						mSleep(300)
                     else
 						if bise_mo(好友按钮) then
                             randomTap(2082,848,3)
@@ -842,6 +875,10 @@ function 导航建邺城()
         mSleep(100)
     end
 end
+function 导航到普陀山()
+    导航大唐国境非驿站路线()
+    大唐国境到普陀山()
+end
 function 任务导航(任务, 是否坐标寻路)
     任务坐标 = 精准获取坐标(任务)
     if  string.find(任务,"建邺城") then
@@ -933,6 +970,37 @@ function 导航朱紫国大唐境外()
             mSleep(2000)
         end
         mSleep(100)
+    end
+end
+function 大唐国境到普陀山()
+    是否到普陀山 = false
+    if bise_mo(小地图普陀山) then
+        是否到普陀山 = true
+    end
+    while (是否到普陀山 == false) do
+        显示器('大唐国境到普陀山')
+        if bise_mo(小地图普陀山) then
+            显示器('小地图普陀山')
+            是否到普陀山 = true
+            break
+        else
+            显示器('进入普陀山')
+            if 点击是的我要去() then
+                显示器('点击是的我要去')
+            else
+                打开隐藏界面功能全部摊位()
+                if  bise_mo(大唐国境普陀传送人) then
+                    显示器('大唐国境普陀传送人')
+					randomTap(1117,545,3)
+                else
+                    点击小地图()
+                    mSleep(500)
+					randomTap(1355,834,3)
+                    大唐国境坐标寻路('221', '61')
+                end
+            end
+        end
+        mSleep(500)
     end
 end
 function MinTable(t)

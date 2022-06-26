@@ -1,4 +1,5 @@
 [res]
+13148.mp3
 梦幻打图.tsproj
 梦幻打图.proj
 点击红色合成旗.png
@@ -18,3 +19,5 @@ m8-script.proj
 network.lua
 config.lua
 main.lua
+
+device.lua

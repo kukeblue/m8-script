@@ -1,3 +1,11 @@
+require("TSLib")
+local sz = require("sz")--使用 sz 库前必须插入这一句
+local json = sz.json--使用 JSON 模块前必须插入这一句
+thread = require('thread')
+--------- 公共方法，公用操作 -----------
+
+
+
 function 显示器(信息)
 local 信息=信息 or "未知界面"
 fwShowWnd("wid1",50,1,1515,48,1)
@@ -86,7 +94,6 @@ function 打开隐藏界面功能隐藏玩家()
 end
 
 function 打开隐藏界面功能()
-    dialog("打开隐藏界面功能")
 while(true) do
 	关闭隐藏界面功能隐藏界面()
 	if bise_mo(隐藏界面功能返回按钮) then
@@ -472,6 +479,34 @@ function 百度文字识别(x1, y1, x2 ,y2)
 end
 
 
+function 收起追踪任务栏()
+	if bise_mo(任务栏收起按钮) then
+	nLog('任务栏收起按钮')
+	randomTap(1809,378)
+	end
+end
+
+function 弹出警告(内容)
+    if 内容 ~= nil and 内容 ~= currentError then
+        currentError = 内容
+        httpSendTaskLog("error", 内容)
+    end
+    playAudio("13148.mp3")
+    mSleep(1000)
+    stopAudio(); 
+end
+
+function 点击当前队长位置() 
+    for var=1,10 do
+        x,y = findMultiColorInRegionFuzzy( 0xc67634,"0|1|0xd37d37,0|2|0xdf843b,0|3|0xe99c4b,0|4|0xf3b65b,0|5|0xf4d270,0|6|0xf3ef86,0|7|0xf4f587,0|8|0xf4f785,0|9|0xf4f782",96,0,0,2241,1074)
+        if x > 0 then
+            显示器('队标')
+            tap(x, y + 245)
+            return true
+        end
+    end
+    return false
+end
 
 function 点击是的我要去()
     local tab = {
@@ -479,7 +514,7 @@ function 点击是的我要去()
     }
     for var= 1, 3 do
         local index = addTSOcrDictEx(tab)
-        x, y = tsFindText(index, "是的", 1602,380,2125,790, "F1F4F7 , 221F1D # FBFEFF , 2C2925 # FFFFFF , 302A25 # FFFFFF , 302A25", 90)
+        x, y = tsFindText(index, "是的", 1618,375,2195,887, "F1F4F7 , 221F1D # FBFEFF , 2C2925 # FFFFFF , 302A25 # FFFFFF , 302A25", 80)
         if x > 0 then
             显示器('点击是的我要去')
             randomTap(x,y,1)

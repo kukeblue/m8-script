@@ -8,6 +8,7 @@ require("坐标寻路")
 require("流程封妖")
 require("流程师门")
 require("流程打图")
+require("device")
 require("network")
 init(1);
 
@@ -50,10 +51,9 @@ function start()
 	toast('启动脚本', 3)
 	mSleep(3000)
 end
---导航长安酒店门口()
---dialog(地图仓库对应关系["花果山jhjhkjkhjkahdsakjDAhdjksahjdhsajkDHASJKDHJSKADHJKASHDJSKAhd"])
---选择仓库(25)
+--导航长安酒店门口()kljjkljlk
+--dialog(地图仓库对应关系["花果山"])
+--选择仓库(25)f'c's'da'sa'd'sa'd'sa'd'sa'd'sa'd'sa'd'sa'd's
 --导航朱紫国大唐境外()
 start()
---点击仓库管理员()
 mSleep(3000);

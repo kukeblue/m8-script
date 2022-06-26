@@ -33,18 +33,17 @@ function 打图()
         打开道具栏()
         mSleep(1000)
         local 任务=nil
-        if bise_mo(任务栏绿色挖宝文字) then
+		任务=读取任务追踪栏文字()
+		dialog(任务)
+        if string.find(任务, "挖宝") then
             显示器('任务栏绿色挖宝文字')
-            任务=读取任务追踪栏文字()--识别宝图地图名称跟坐标、
-            if 任务 == nil then
-                显示器('读取任务失败')
-                break
-            end
         else
             领取宝图任务()
             break
         end
+		dialog('?????1')
         任务坐标 = 精准获取坐标(任务)
+		dialog('?????2')
         是否是贼王 =string.find(任务, "贼")
         if 任务坐标==nil and 是否是贼王==nil then
             显示器('读取任务信息不完善')
@@ -55,7 +54,8 @@ function 打图()
             坐标y = 任务坐标[2]
             if (坐标x ~= nil and 坐标y ~= nil and string.len(坐标x) ~= nil and string.len(坐标y) ~= nil) or 是否是贼王~= nil then
                 打图任务数 = 获取打图次数(任务, 是否是贼王)
-                if bise_mo(隐藏界面功能返回按钮) or bise_mo(隐藏界面功能返回按钮1)  then
+				dialog('?????')
+                if bise_mo(隐藏界面功能返回按钮) then
                     显示器('隐藏界面功能返回按钮')
                     randomTap(69,947,3)
                 end
@@ -226,7 +226,6 @@ function 点击强盗(地点, 坐标x, 坐标y, 是否是贼王)
         else
             打开隐藏界面功能全部摊位()
         end
-        
     end
     local tab = {
         "c01fc00ce07fe00ec0fff01ec0ffe00ec0e0e00ec0c0e00ec0c0e01ee0c0fc1cffc0fffcffc0fff87f80ffc03e01fe000001f80c2203f81effcffc0effcffc0cf3cf0c0ce3ce0c0ce3cf0c0ce3cf2ffce3fffffce3fffffce3fffffce3fffffce3cf0e3ce3ce0e3cf7cf0ffcffcf1ffcffcffffc7f0ffffe0003f83f0000000e$强$579$32$32",
@@ -234,7 +233,7 @@ function 点击强盗(地点, 坐标x, 坐标y, 是否是贼王)
     local index2 = addTSOcrDictEx(tab)
     完成任务=false
     while (完成任务==false) do
-        mSleep(200)
+		dialog('??????2')
         count = 0
         显示器("第"..count..'次')
         if 是否是贼王 then
@@ -251,7 +250,7 @@ function 点击强盗(地点, 坐标x, 坐标y, 是否是贼王)
                 显示器("是否是强盗")	
                 while (count < 5) do
                     count = count + 1
-                    x, y = tsFindText(index2, "强",0,0,1915,1076, "EDDE5D , 635F3F # CFC03F , 454121 # C5B635 , 3B3717", 80)
+                    x, y = tsFindText(index2, "强",0,0,2241,1074, "EDDE5D , 635F3F # CFC03F , 454121 # C5B635 , 3B3717", 80)
                     显示器("识别到强 	x:"..x.." , y:"..y)
                     if x>0 then
                         显示器("点击强盗")	
@@ -303,8 +302,8 @@ function 二次点击强盗()
         "0003e0003007fc002c07cf000b0180c002c0603000f0180c003c0603000f0180c006e0e038073cf00e0f83fc03ff8000000000000000000000070000001fe0087c07fc067fc3cf019870e0c06c1c30301b030c0c06c0c30301b039e1e0ec0ffffffb03fffffcc0ffffff3039e0e0cc0c303033030c0e0cc0c303833870e0f1c7fc387ff1fe0f3e7e3f01ff0f800000007$强$431$34$34",
     }
     local index = addTSOcrDictEx(tab)
-    for var=1, 10 do
-        x, y = tsFindText(index, "强", 0,0,1915,1076, "EEF1F3 , 13100F # F7FAFC , 1C1918 # FFFFFF , 241E1B # FFFFFF , 241E1B", 90)
+    for var=1, 3 do
+        x, y = tsFindText(index, "强", 0,0,2241,1074, "EEF1F3 , 13100F # F7FAFC , 1C1918 # FFFFFF , 241E1B # FFFFFF , 241E1B", 90)
         if x>0 then
             显示器("二次点击强盗")	
             randomTap(x,y, 2)
@@ -323,7 +322,7 @@ function 点击我是来收拾你的()
     }
     local index = addTSOcrDictEx(tab)
     for var=1,5 do
-        x, y = tsFindText(index, "收拾", 1355,346,1906,881, "F1F4F7 , 221F1D # FBFEFF , 2C2925 # FFFFFF , 302A25 # FFFFFF , 302A25", 90)
+        x, y = tsFindText(index, "收拾", 1681,374,2239,1027, "F1F4F7 , 221F1D # FBFEFF , 2C2925 # FFFFFF , 302A25 # FFFFFF , 302A25", 90)
         if x > 0 then
             显示器('点击我是来收拾你的')
             randomTap(x,y,1)

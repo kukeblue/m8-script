@@ -1,3 +1,5 @@
+require("device")
+
 local sz = require("sz")--使用 sz 库前必须插入这一句
 local json = sz.json--使用 JSON 模块前必须插入这一句
 require("tsnet")
@@ -14,8 +16,6 @@ deviceId = 0
 accountId = 0
 isLogin = false
 isWatuReady = false
-imei = '0'
-
 
 local str = [[{"meme":[1,0,0,4,6,9,5,1,0,0],"我":"五毛","爱":"六块"}]]
 
@@ -106,8 +106,9 @@ function httpGetStartTask()
     return false
 end
 
+
 function httpGetReadyWatuTask()
-    local body = '{"name": "主线挖图", "status": "启动中"}'
+    local body = '{"name": "主线挖图", "status": "启动中", "imei": "'..imei..'"}'
     status,header,content = http.post(url.."/api/client/get_one_task",{headers=header_send,postdata=body,opts={charset="utf8"}})
     if status == 200 then
         local res = json.decode(content);
@@ -128,6 +129,7 @@ function httpGetReadyWatuTask()
     end
     return false
 end
+
 
 
 -- function httpCreateTask()
